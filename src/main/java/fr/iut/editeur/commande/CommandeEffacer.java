@@ -10,15 +10,14 @@ public class CommandeEffacer extends CommandeDocument {
 
     @Override
     public void executer() {
-        if(parameters.length < 4) {
-            System.err.println("Format attendu : effacer;depart;fin;");
+        if(parameters.length < 3) {
+            System.err.println("Format attendu : effacer;depart;fin");
             return;
         }
         int indexDepart = Integer.parseInt(parameters[1]); //On donne en paramètre un string, donc on doit convertir string en int.
         int indexFin = Integer.parseInt(parameters[2]);
-        String texte = parameters[3];
+        String texte = "";
         this.document.remplacer(indexDepart,indexFin,texte);
         super.executer();
     }
-
 }
