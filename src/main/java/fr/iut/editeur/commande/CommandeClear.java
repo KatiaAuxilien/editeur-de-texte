@@ -11,7 +11,7 @@ public class CommandeClear extends CommandeDocument {
 
     @Override
     public void executer() {
-        if(parameters.length < 2) {
+        if(parameters.length < 1) {
             System.err.println("Format attendu : effacer;");
             return;
         }
