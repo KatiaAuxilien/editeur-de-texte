@@ -21,5 +21,4 @@ public class CommandeClear extends CommandeDocument {
         this.document.remplacer(indexDebut,indexFin,texte);
         super.executer();
     }
-
 }
