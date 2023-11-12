@@ -21,4 +21,9 @@ public class CommandeClear extends CommandeDocument {
         this.document.remplacer(indexDebut,indexFin,texte);
         super.executer();
     }
+
+    @Override
+    public void getDescriptionCommande() {
+        System.out.println("Clear : Effacer tout le document.");
+    }
 }
