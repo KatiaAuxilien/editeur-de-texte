@@ -12,7 +12,6 @@ jobs:
   generate-and-deploy:
     runs-on: ubuntu-latest
 
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -23,7 +22,12 @@ jobs:
           java-version: 17
 
       - name: Generate Javadoc
-        run: mvn javadoc::javadoc
+        run: mvn javadoc:javadoc
+
+      - name: Create and Checkout New Branch
+        run: |
+          git checkout -b gh-pages
+          git pull origin gh-pages
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -31,18 +35,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/apidocs/
 
-      - name: New branch
-        run: git checkout -b gh-pages
-
-      - name: Pull
-        run: git pull
-
-      - name: Push
-        run: git push -u origin gh-pages
-
-      - name: Ajout
+      - name: Add Changes
         run: git add .
-      - name: Commit
+
+      - name: Commit Changes
         run: git commit -m "New javadoc."
-      - name: push
+
+      - name: Push Changes
         run: git push origin gh-pages
