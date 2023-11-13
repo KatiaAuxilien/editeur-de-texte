@@ -4,22 +4,41 @@ public class Document {
 
     private String texte;
 
+    /** Constructeur
+     */
     public Document() {
         this.texte = "";
     }
-	
+
+    /**
+     * Obtenir le texte contenu dans le document.
+     * @return texte du document.
+     */
     public String getTexte() {
         return texte;
     }
 
+    /**
+     * Définir le texte du document.
+     * @param texte à ajouter.
+     */
     public void setTexte(String texte) {
         this.texte = texte;
     }
 
+    /**
+     * Ajouter du texte à mon document.
+     * @param texte à ajouter.
+     */
     public void ajouter(String texte) {
         this.texte += texte;
     }
 
+    /**
+     *
+     * @param start
+     * @param end
+     */
     public void effacer(int start, int end){
         remplacer(start,end,"");
     }
