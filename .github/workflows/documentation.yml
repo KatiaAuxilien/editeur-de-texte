@@ -35,11 +35,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/apidocs/
 
-      - name: Add Changes
-        run: git add .
-
-      - name: Commit Changes
-        run: git commit -m "New javadoc."
-
-      - name: Push Changes
-        run: git push origin gh-pages
+      - name: Set write permissions on the new branch
+        run: |
+          git branch -M gh-pages
+          git push -u origin gh-pages
