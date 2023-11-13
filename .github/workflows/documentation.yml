@@ -34,6 +34,9 @@ jobs:
       - name: New branch
         run: git checkout -b gh-pages
 
+      - name: Pull
+        run: git pull
+
       - name: Push
         run: git push -u origin gh-pages
 
