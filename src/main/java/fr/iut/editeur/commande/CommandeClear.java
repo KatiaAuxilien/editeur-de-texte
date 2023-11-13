@@ -16,7 +16,7 @@ public class CommandeClear extends CommandeDocument {
             return;
         }
         int indexDebut = 0;
-        int indexFin = this.document.getContentDocument().length();
+        int indexFin = this.document.getTexteDocument().length();
         String texte = "";
         this.document.remplacer(indexDebut,indexFin,texte);
         super.executer();
