@@ -1,0 +1,30 @@
+name: Release generation.
+
+on:
+  push:
+    tags:
+      - '*'
+    
+permissions:
+  contents: write
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+
+      - name: Generate executable
+        run: mvn package 
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: target/EditeurDeTexte-0.0.1.jar
