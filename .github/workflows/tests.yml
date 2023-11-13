@@ -3,7 +3,7 @@
   on:
     push:
       branches:
-        - developement
+        - developpement
 
   jobs:
     build :
