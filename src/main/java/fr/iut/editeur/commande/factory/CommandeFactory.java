@@ -7,6 +7,10 @@ public class CommandeFactory {
 
     private static CommandeFactory instance;
 
+    /**
+     * Récupérer une instance de CommandeFactory.
+     * @return CommandeFactory
+     */
     public static CommandeFactory getInstance() {
         if(instance == null) {
             instance = new CommandeFactory();
