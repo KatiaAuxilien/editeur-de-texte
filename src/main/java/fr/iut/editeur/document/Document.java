@@ -1,6 +1,4 @@
 package fr.iut.editeur.document;
-import fr.iut.editeur.commande.*;
-
 import java.lang.String;
 public class Document {
 
