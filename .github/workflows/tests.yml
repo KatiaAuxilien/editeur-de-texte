@@ -1,9 +1,6 @@
   name : tests_workflow
 
-  on:
-    push:
-      branches:
-        - developpement
+  on: push
 
   jobs:
     build :
