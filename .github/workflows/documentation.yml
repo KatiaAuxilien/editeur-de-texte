@@ -3,8 +3,8 @@ name: Javadoc Generation and Deployment
 on:
   push:
     branches:
-      - main
-      -
+      - master
+
 permissions:
   contents: write
 
