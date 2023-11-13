@@ -4,12 +4,14 @@ on:
   push:
     branches:
       - main
+      -
+permissions:
+  contents: write
 
 jobs:
   generate-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+
 
     steps:
       - name: Checkout Repository
