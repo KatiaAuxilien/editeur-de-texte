@@ -51,6 +51,13 @@ public class Document {
         }
     }
 
+    public void minuscules(int start, int end) {
+        String texte = getContentDocument();
+        String partieMaj = texte.substring(start,end);
+        partieMaj = partieMaj.toLowerCase();
+        remplacer(start,end,partieMaj);
+    }
+
     @Override
     public String toString() {
         return this.contentDocument;

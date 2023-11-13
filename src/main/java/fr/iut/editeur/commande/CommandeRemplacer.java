@@ -24,7 +24,5 @@ public class CommandeRemplacer extends CommandeDocument {
     @Override
     public void getDescriptionCommande() {
         System.out.println("Remplacer : remplacer le texte par un autre d'un point de départ à un point de fin dans le document.");
-
     }
-
 }

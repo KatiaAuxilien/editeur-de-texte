@@ -24,5 +24,4 @@ public class CommandeAjouter extends CommandeDocument {
     public void getDescriptionCommande() {
         System.out.println("Ajouter : ajoute le texte en argument au document.");
     }
-
 }
