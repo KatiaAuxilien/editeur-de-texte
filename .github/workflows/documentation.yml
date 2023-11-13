@@ -14,11 +14,14 @@ jobs:
 
 
     steps:
+      - name: New branch
+        run: git checkout gh-pages
+
+      - name: Push
+        run: git push -u origin gh-pages
+
       - name: Checkout Repository
         uses: actions/checkout@v3
-
-      - name: New branch
-        run: git checkout -b gh-pages
 
       - name: Set up Java
         uses: actions/setup-java@v1
@@ -34,5 +37,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/apidocs/
 
-      - name: Push
-        run: git push -u origin gh-pages
+      - name: Ajout
+        run: git add .
+      - name: Commit
+        run: git commit -m "New javadoc."
+      - name: push
+        run: git push origin gh-pages
