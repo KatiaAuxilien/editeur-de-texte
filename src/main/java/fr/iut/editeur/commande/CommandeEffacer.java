@@ -20,4 +20,9 @@ public class CommandeEffacer extends CommandeDocument {
         this.document.remplacer(indexDepart,indexFin,texte);
         super.executer();
     }
+
+    @Override
+    public void getDescriptionCommande() {
+        System.out.println("Effacer : efface le texte d'un point de départ à un point de fin dans le document.");
+    }
 }
