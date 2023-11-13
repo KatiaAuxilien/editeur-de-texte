@@ -3,10 +3,11 @@ name: Javadoc Generation and Deployment
 on:
   push:
     branches:
-      - master
+      - main
 
 permissions:
   contents: write
+
 
 jobs:
   generate-and-deploy:
@@ -24,16 +25,8 @@ jobs:
       - name: Generate Javadoc
         run: mvn javadoc:javadoc
 
-      - name: Create and Checkout New Branch
-        run: git checkout gh-pages
-      - name:
-        run: git pull origin gh-pages
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/apidocs/
-          
-      - name: Set write permissions on the new branch
-        run: git push -u --force origin gh-pages
