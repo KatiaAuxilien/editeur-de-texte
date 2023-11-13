@@ -32,7 +32,11 @@ public class DocumentTest extends TestCase {
         assertEquals("Le contenu ajouté est incorrect.","abcde",docTest.getTexteDocument());
     }
 
+    public void testRemplacer() throws Exception{
+        docTest.remplacer(0,1,"z");
+        assertEquals("Le contenu ajouté est incorrect.","zbc",docTest.getTexteDocument());
 
+    }
 
 
 }
