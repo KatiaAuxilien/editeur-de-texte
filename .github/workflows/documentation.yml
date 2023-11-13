@@ -36,6 +36,4 @@ jobs:
           publish_dir: ./target/site/apidocs/
           
       - name: Set write permissions on the new branch
-        run: |
-          git branch -M gh-pages
-          git push -u --force origin gh-pages
+        run: git push -u --force origin gh-pages
