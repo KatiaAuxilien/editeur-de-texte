@@ -29,9 +29,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/apidocs/
 
-      - name: Set write permissions on the new branch
-        run: |
-          git branch gh-pages
-          git push -u origin gh-pages
-          git branch --set-upstream-to=origin/gh-pages gh-pages
-          git push --force-with-lease
+      - name: New branch
+        run: git checkout -b gh-pages
+      - name: Push
+        run: git push -u origin gh-pages
