@@ -31,7 +31,7 @@ jobs:
 
       - name: Set write permissions on the new branch
         run: |
-          git branch -M gh-pages
+          git branch gh-pages
           git push -u origin gh-pages
           git branch --set-upstream-to=origin/gh-pages gh-pages
           git push --force-with-lease
