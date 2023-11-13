@@ -1,69 +1,58 @@
 package fr.iut.editeur.document;
+import fr.iut.editeur.commande.*;
+
 import java.lang.String;
 public class Document {
 
-    private String texte;
+    private String contentDocument;
 
-    /** Constructeur
-     */
     public Document() {
-        this.texte = "";
+        this.contentDocument = "";
+    }
+	
+    public String getContentDocument() {
+        return contentDocument;
     }
 
-    /**
-     * Obtenir le texte contenu dans le document.
-     * @return texte du document.
-     */
-    public String getTexte() {
-        return texte;
+    public void setContentDocument(String contentDocument) {
+        this.contentDocument = contentDocument;
     }
 
-    /**
-     * Définir le texte du document.
-     * @param texte à ajouter.
-     */
-    public void setTexte(String texte) {
-        this.texte = texte;
-    }
-
-    /**
-     * Ajouter du texte à mon document.
-     * @param texte à ajouter.
-     */
     public void ajouter(String texte) {
-        this.texte += texte;
+        this.contentDocument += texte;
     }
 
-    /**
-     *
-     * @param start
-     * @param end
-     */
     public void effacer(int start, int end){
         remplacer(start,end,"");
     }
     public void remplacer(int start, int end, String remplacement) {
-        String leftPart = texte.substring(0, start);
-        String rightPart = texte.substring(end);
-        texte = leftPart + remplacement + rightPart;
+        String leftPart = contentDocument.substring(0, start);
+        String rightPart = contentDocument.substring(end);
+        contentDocument = leftPart + remplacement + rightPart;
     }
 
     public void majuscules(int start, int end) {
-        String texte = getTexte();
+        String texte = getContentDocument();
         String partieMaj = texte.substring(start,end);
         partieMaj = partieMaj.toUpperCase();
         remplacer(start,end,partieMaj);
     }
 
-    public void minuscules(int start, int end) {
-        String texte = getTexte();
-        String partieMaj = texte.substring(start,end);
-        partieMaj = partieMaj.toLowerCase();
-        remplacer(start,end,partieMaj);
+    public void description(String commande, String[] parameters,Document document){
+        switch (commande) {
+            case "ajouter" : (new CommandeAjouter(document, parameters)).getDescriptionCommande(); return;
+            case "remplacer" : (new CommandeRemplacer(document, parameters)).getDescriptionCommande(); return;
+            case "majuscules" : (new CommandeMajuscules(document, parameters)).getDescriptionCommande(); return;
+            case "effacer" : (new CommandeEffacer(document,parameters)).getDescriptionCommande(); return;
+            case "clear" : (new CommandeClear(document,parameters)).getDescriptionCommande(); return;
+            case "insert" :(new CommandeInserer(document,parameters)).getDescriptionCommande(); return;
+            case "description" : (new CommandeDescription(document,parameters)).getDescriptionCommande(); return;
+            default: System.out.println("Commande Inexistante"); return;
+        }
     }
 
     @Override
     public String toString() {
-        return this.texte;
+        return this.contentDocument;
     }
 }
