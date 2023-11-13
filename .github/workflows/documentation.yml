@@ -17,6 +17,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: New branch
+        run: git checkout -b gh-pages
+
       - name: Set up Java
         uses: actions/setup-java@v1
         with:
@@ -31,7 +34,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/apidocs/
 
-      - name: New branch
-        run: git checkout -b gh-pages
       - name: Push
         run: git push -u origin gh-pages
