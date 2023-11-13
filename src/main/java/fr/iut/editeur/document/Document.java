@@ -4,35 +4,35 @@ import fr.iut.editeur.commande.*;
 import java.lang.String;
 public class Document {
 
-    private String contentDocument;
+    private String texteDocument;
 
     public Document() {
-        this.contentDocument = "";
+        this.texteDocument = "";
     }
 	
-    public String getContentDocument() {
-        return contentDocument;
+    public String getTexteDocument() {
+        return texteDocument;
     }
 
-    public void setContentDocument(String contentDocument) {
-        this.contentDocument = contentDocument;
+    public void setTexteDocument(String texteDocument) {
+        this.texteDocument = texteDocument;
     }
 
     public void ajouter(String texte) {
-        this.contentDocument += texte;
+        this.texteDocument += texte;
     }
 
     public void effacer(int start, int end){
         remplacer(start,end,"");
     }
     public void remplacer(int start, int end, String remplacement) {
-        String leftPart = contentDocument.substring(0, start);
-        String rightPart = contentDocument.substring(end);
-        contentDocument = leftPart + remplacement + rightPart;
+        String leftPart = texteDocument.substring(0, start);
+        String rightPart = texteDocument.substring(end);
+        texteDocument = leftPart + remplacement + rightPart;
     }
 
     public void majuscules(int start, int end) {
-        String texte = getContentDocument();
+        String texte = getTexteDocument();
         String partieMaj = texte.substring(start,end);
         partieMaj = partieMaj.toUpperCase();
         remplacer(start,end,partieMaj);
@@ -60,6 +60,6 @@ public class Document {
 
     @Override
     public String toString() {
-        return this.contentDocument;
+        return this.texteDocument;
     }
 }
