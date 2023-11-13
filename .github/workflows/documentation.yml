@@ -25,9 +25,9 @@ jobs:
         run: mvn javadoc:javadoc
 
       - name: Create and Checkout New Branch
-        run: |
-          git checkout -b gh-pages
-          git pull origin gh-pages
+        run: git checkout gh-pages
+      - name:
+        run: git pull origin gh-pages
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
